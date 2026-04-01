@@ -28,8 +28,9 @@ Created on Fri Mar 27 21:35:51 2026
 import sys
 import os
  
- 
-sys.path.append(r"D:\HGI\HGI-One yr\lib")
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# sys.path.append(r"D:\HGI\HGI-One yr\lib")
+sys.path.append(current_dir)
  
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -58,7 +59,7 @@ def run_model():
     try:
         # module_hgi()  # keep commented for now
  
-        df = pd.read_csv(r"D:\HGI\HGI-One yr\output\output.csv")
+        df = pd.read_csv(r"output.csv")
         df = df.fillna("")
  
         # 👉 Convert time column
